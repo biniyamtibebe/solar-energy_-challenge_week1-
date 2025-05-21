@@ -1,119 +1,133 @@
-# solar-energy_-challenge_week1-
+# solar-challenge-week1
+## Overview
 
-Overview
+This project is part of the 10 Academy's AIM Week 0 Challenge. The goal is to prepare and analyze solar energy data from multiple countries to support region-ranking and decision-making tasks in renewable energy deployment. The work is divided into structured tasks. This README outlines the steps and deliverables completed for **Task 1** and **Task 2**.
 
-This project is part of the 10 Academy's AIM Week 0 Challenge. Its objective is to prepare and analyze solar energy data from various countries to assist with region-ranking and decision-making in renewable energy deployment. The work is organized into specific tasks. This README details the steps and deliverables for Task 1 and Task 2.
+----
 
-✅ Task 1: Git & Project Setup
+## ✅ Task 1: Git & Project Setup
 
-Objective
+### Objective
 To set up a proper version-controlled project workspace using Git and GitHub for collaborative and organized development.
 
-Steps Completed
+### Steps Completed
 
-✅ Initialized Git repository
+- ✅ Initialized Git repository
+- ✅ Created `.gitignore` to exclude unnecessary files (e.g., virtual environments, CSVs, notebook checkpoints)
+- ✅ Set up Python virtual environment (`venv`) and installed required packages listed in `requirements.txt`
+- ✅ Created development branches for each task and feature
+- ✅ Successfully merged branches and maintained a clean commit history
+- ✅ Pushed project to GitHub
 
-✅ Created .gitignore to exclude unnecessary files (e.g., virtual environments, CSVs, notebook checkpoints)
+---
 
-✅ Set up Python virtual environment (venv) and installed required packages listed in requirements.txt
+## ✅ Task 2: Data Profiling, Cleaning & Exploratory Data Analysis (EDA)
 
-✅ Created development branches for each task and feature
-
-✅ Successfully merged branches and maintained a clean commit history
-
-✅ Pushed project to GitHub
-
-✅ Task 2: Data Profiling, Cleaning & Exploratory Data Analysis (EDA)
-
-Objective
-
+### Objective
 To profile, clean, and explore the solar dataset of each country to prepare it for downstream analysis and modeling.
 
-Countries Analyzed
+### Countries Analyzed
+- Benin
+- Sierra Leone
+- Togo
 
-Benin
+Each country has its own notebook and cleaned dataset stored locally under the `data/` folder.
 
-Sierra Leone
+---
 
-Togo
+### Key Steps Performed
 
-Each country has its own notebook and cleaned dataset stored locally under the data/ folder.
+1. **Branch Creation**
+   - Created a dedicated branch for each country (e.g., `eda-sirraleone`)
 
-Key Steps Performed
+2. **Notebook Analysis**
+   - Notebooks: `benin_eda`,`sirraleone_eda.ipynb`, `togo_eda.ipynb`
 
-Branch Creation
+3. **Data Profiling**
+   - Used `df.describe()` to generate summary statistics
+   - Used `df.isna().sum()` to report missing values
+   - Flagged columns with more than 5% null values
 
-Created a dedicated branch for each country (e.g., eda-sirraleone)
+4. **Data Cleaning**
+   - Identified outliers using Z-score method (|Z| > 3)
+   - Imputed missing values using median where applicable
+   - Exported cleaned datasets to `data/<country>_clean.csv`
 
-Notebook Analysis
+  5. **Exploratory Data Analysis (EDA)**
+   - Time series plots of GHI, DNI, DHI, and Tamb
+   - Distribution and outlier analysis for sensor and wind readings
+   - Correlation matrix heatmaps
+   - Scatter plots to analyze environmental relationships
+   - Bubble chart to examine GHI vs Tamb with RH or BP
+   - Wind rose plots and histograms for key variables
 
-Notebooks: benin_eda,sirraleone_eda.ipynb, togo_eda.ipynb
+6. **Cleaning Impact Analysis**
+   - Compared ModA and ModB before and after cleaning
+   - Grouped and visualized data based on cleaning flags
 
-Data Profiling
+---
 
-Used df.describe() to generate summary statistics
-
-Used df.isna().sum() to report missing values
-
-Flagged columns with more than 5% null values
-
-Data Cleaning
-
-Identified outliers using Z-score method (|Z| > 3)
-
-Imputed missing values using median where applicable
-
-Exported cleaned datasets to data/<country>_clean.csv
-
-Exploratory Data Analysis (EDA)
-
-Time series plots of GHI, DNI, DHI, and Tamb
-
-Distribution and outlier analysis for sensor and wind readings
-
-Correlation matrix heatmaps
-
-Scatter plots to analyze environmental relationships
-
-Bubble chart to examine GHI vs Tamb with RH or BP
-
-Wind rose plots and histograms for key variables
-Cleaning Impact Analysis
-
-Compared ModA and ModB before and after cleaning
-Grouped and visualized data based on cleaning flags
-✅ Task 3: Cross-Country Comparison
-Objective
+### ✅ Task 3: Cross-Country Comparison
+**Objective**  
 To synthesize the cleaned datasets from Benin, Sierra Leone, and Togo to identify relative solar potential and key differences across countries.
 
-Branch: compare-countries
-Notebook: compare_countries.ipynb
+**Branch**: `compare-countries`  
+**Notebook**: `compare_countries.ipynb`
 
-Key Steps Performed
+**Key Steps Performed**  
+- **Data Loading**  
+  - Loaded cleaned CSVs (`data/benin_clean.csv`, `data/sierraleone_clean.csv`, `data/togo_clean.csv`)  
+  - Combined datasets with a 'Country' column for unified analysis  
+- **Metric Comparison**  
+  - Created side-by-side boxplots for GHI, DNI, and DHI, colored by country  
+  - Generated a summary table comparing mean, median, and standard deviation of GHI, DNI, DHI across countries  
+- **Statistical Testing**  
+  - Performed Kruskal-Wallis test on GHI to assess significant differences (p-value reported)  
+- **Key Observations**  
+  - Summarized findings in a markdown cell with 3 bullet points highlighting actionable insights (e.g., highest GHI, variability)  
+- **Bonus Visualization**  
+  - Created a bar chart ranking countries by average GHI 
+- **Git Hygiene**  
+  - Committed changes with message: `Completed Task 3: Cross-country comparison with boxplots, summary table, and statistical testing`  
+  - Ensured `data/` folder remains ignored in `.gitignore`  
 
-Data Loading
-Loaded cleaned CSVs (data/benin_clean.csv, data/sierraleone_clean.csv, data/togo_clean.csv)
-Combined datasets with a 'Country' column for unified analysis
-Metric Comparison
-Created side-by-side boxplots for GHI, DNI, and DHI, colored by country
-Generated a summary table comparing mean, median, and standard deviation of GHI, DNI, DHI across countries
-Statistical Testing
-Performed Kruskal-Wallis test on GHI to assess significant differences (p-value reported)
-Key Observations
-Summarized findings in a markdown cell with 3 bullet points highlighting actionable insights (e.g., highest GHI, variability)
-Bonus Visualization
-Created a bar chart ranking countries by average GHI
-Git Hygiene
-Committed changes with message: Completed Task 3: Cross-country comparison with boxplots, summary table, and statistical testing
-Ensured data/ folder remains ignored in .gitignore
-Deliverables
+**Deliverables**  
+- Notebook: `compare_countries.ipynb`  
+- Summary table CSV: `data/summary_stats.csv`  
+- Visuals: Boxplots and bar chart for GHI, DNI, DHI  
 
-Notebook: compare_countries.ipynb
-Summary table CSV: data/summary_stats.csv
-Visuals: Boxplots and bar chart for GHI, DNI, DHI
-KPIs Achieved
+**KPIs Achieved**  
+- Included all three countries in plots  
+- Correctly reported p-values from statistical testing  
+- Provided relevant, actionable insights in markdown  
+- Generated a summary table with mean, median, and standard deviation
 
-Included all three countries in plots
-Correctly reported p-values from statistical testing
-Provided relevant, actionable insights in markdown
-Generated a summary table with mean, median, and standard deviation
+----
+
+## Setup Instructions
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/abmoh4219/solar-challenge-week1.git
+   cd solar-challenge-week1
+2. **Set up virtual environment**:
+   ``` bash
+   python -m venv venv
+   source venv/Scripts/activate  # On Windows Git Bash
+   pip install -r requirements.txt
+
+3. **Folder Structure**:
+    ```bash
+    -src/: Source code
+
+    -notebooks/: Jupyter notebooks for EDA
+
+    -tests/: Unit tests
+
+    -scripts/: Utility scripts
+
+    -data/: Data files (ignored in .gitignore)
+
+
+
+
+
