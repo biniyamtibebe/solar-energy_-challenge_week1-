@@ -1,9 +1,16 @@
 # solar-energy_-challenge_week1-
+
+Overview
+
+This project is part of the 10 Academy's AIM Week 0 Challenge. Its objective is to prepare and analyze solar energy data from various countries to assist with region-ranking and decision-making in renewable energy deployment. The work is organized into specific tasks. This README details the steps and deliverables for Task 1 and Task 2.
+
 ✅ Task 1: Git & Project Setup
+
 Objective
 To set up a proper version-controlled project workspace using Git and GitHub for collaborative and organized development.
 
 Steps Completed
+
 ✅ Initialized Git repository
 ✅ Created .gitignore to exclude unnecessary files (e.g., virtual environments, CSVs, notebook checkpoints)
 ✅ Set up Python virtual environment (venv) and installed required packages listed in requirements.txt
